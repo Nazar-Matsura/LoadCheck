@@ -1,0 +1,9 @@
+﻿@using (Ajax.BeginForm("CheckUri", new AjaxOptions { UpdateTargetId = "results", HttpMethod = "GET" }))
+{
+    <input type="text" name="url" />
+    <input type="submit" value="Check" />
+}
+
+<img id="loading" src="@Url.Content("~/Content/loading.gif")" style="display: none" class="loading"/>
+
+<div id="results"></div>

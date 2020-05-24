@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using LoadCheck.Models;
@@ -9,33 +10,27 @@ namespace LoadCheck.Services.Services
 {
     public class LoadCheckService : ILoadCheckService
     {
-        private readonly ISitemapFinder _sitemapFinder;
-        private readonly ISitemapParser _sitemapParser;
+        private readonly IUrlsProvider _urlsProvider;
         private readonly IUrlsChecker _urlsChecker;
 
-        public LoadCheckService(ISitemapFinder sitemapFinder, ISitemapParser sitemapParser, IUrlsChecker urlsChecker)
+        public LoadCheckService(IUrlsProvider urlsProvider, IUrlsChecker urlsChecker)
         {
-            _sitemapFinder = sitemapFinder;
-            _sitemapParser = sitemapParser;
+            _urlsProvider = urlsProvider;
             _urlsChecker = urlsChecker;
         }
 
         public async Task<List<UrlResponseTimes>> CheckLoadAt(Uri url)
         {
-            var xml = await _sitemapFinder.FindSitemapsFor(url);
+            Debug.WriteLine($"{url} - get sitemap");
+            var stopWatch = new Stopwatch();
+            stopWatch.Start();
+            var urls = await _urlsProvider.GetSitemapFor(url);
+            Debug.WriteLine($"{url} - {stopWatch.ElapsedMilliseconds}");
 
-            var urls = await _sitemapParser.ParseSitemaps(xml);
-
-            var responseTimes = await _urlsChecker.MeasureResponseTimes(urls);
-
-            var result = new List<UrlResponseTimes>
-            {
-                new UrlResponseTimes {MaxResponseTime = 1500, MinResponseTime = 100, Url = new Uri("https://stackoverflow.com")},
-                new UrlResponseTimes {MaxResponseTime = 500, MinResponseTime = 100, Url = new Uri("https://stackoverflow.com")},
-                new UrlResponseTimes {MaxResponseTime = 700, MinResponseTime = 100, Url = new Uri("https://stackoverflow.com")},
-                new UrlResponseTimes {MaxResponseTime = 1100, MinResponseTime = 100, Url = new Uri("https://stackoverflow.com")},
-                new UrlResponseTimes {MaxResponseTime = 1200, MinResponseTime = 100, Url = new Uri("https://stackoverflow.com")},
-            };
+            Debug.WriteLine($"{url} - measure urls");
+            stopWatch.Restart();
+            var result = await _urlsChecker.MeasureResponseTimes(urls);
+            Debug.WriteLine($"{url} - {stopWatch.ElapsedMilliseconds}");
 
             return result.OrderByDescending(r => r.MaxResponseTime).ToList();
         }

@@ -137,8 +137,10 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="Filters\ExceptionFilter.cs" />
+    <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Models\CheckUrlResults.cs" />
-    <Compile Include="Services\Interfaces\ISitemapFinder.cs" />
+    <Compile Include="Services\Interfaces\IUrlsProvider.cs" />
     <Compile Include="Services\Interfaces\ISitemapParser.cs" />
     <Compile Include="Services\Interfaces\IUrlsChecker.cs" />
     <Compile Include="Services\Services\LoadCheckService.cs" />
@@ -147,13 +149,13 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Services\Interfaces\ILoadCheckService.cs" />
-    <Compile Include="Exceptions\SiteMapNotFoundException.cs" />
+    <Compile Include="Exceptions\SitemapNotFoundException.cs" />
     <Compile Include="Models\UrlResponseTimes.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Services\SitemapFinder.cs" />
+    <Compile Include="Services\Services\UrlsProvider.cs" />
     <Compile Include="Services\Services\SitemapParser.cs" />
     <Compile Include="Services\Services\UrlsChecker.cs" />
   </ItemGroup>
@@ -194,7 +196,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\CheckUri.cshtml" />
+    <Content Include="Views\Shared\CheckUrl.cshtml" />
+    <Content Include="Views\Shared\Chart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

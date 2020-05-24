@@ -6,8 +6,8 @@ namespace LoadCheck.Models
     {
         public Uri Url { get; set; }
 
-        public int MinResponseTime { get; set; }
+        public long MinResponseTime { get; set; }
 
-        public int MaxResponseTime { get; set; }
+        public long MaxResponseTime { get; set; }
     }
 }

@@ -1,11 +1,11 @@
+using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Xml;
+using System.Xml.Linq;
 
 namespace LoadCheck.Services.Interfaces
 {
     public interface ISitemapParser
     {
-        Task<List<object>> ParseSitemaps(List<XmlDocument> xml);
+        List<Uri> ParseSitemap(XElement xml);
     }
 }

@@ -28,5 +28,22 @@ textarea {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    margin-top: 100px;
+    width: 64px;
+}
+
+#results {
+    position: fixed;
+    height: 90%;
+    width: inherit;
+}
+
+.table-container {
+    height: 50%;
+    overflow-y: auto;
+}
+
+.chart-container {
+    height: 50%;
+    overflow-y: auto;
 }

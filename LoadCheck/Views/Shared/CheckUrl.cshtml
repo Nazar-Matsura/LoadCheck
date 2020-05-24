@@ -1,22 +1,27 @@
-﻿@model LoadCheck.Models.CheckUrlResults
+﻿@model List<LoadCheck.Models.UrlResponseTimes>
 
-<img src="data:image;base64,@System.Convert.ToBase64String(Model.ChartImage)"/>
-<div class="row">
+<div id="chartContainer" class="chart-container">
+    @{
+        Html.RenderPartial("Chart", Model);
+    }
+</div>
+
+<div class="table-container">
     <table class="table">
         <tr>
             <th>
-                "Url"
+                Url
             </th>
             <th>
-                "Minimum Time"
+                Minimum Time
             </th>
             <th>
-                "Maximum Time"
+                Maximum Time
             </th>
             <th></th>
         </tr>
 
-        @foreach (var item in Model.Data)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>

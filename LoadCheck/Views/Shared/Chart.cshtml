@@ -1,0 +1,39 @@
+﻿@using LoadCheck.Helpers
+@model List<LoadCheck.Models.UrlResponseTimes>
+
+<script>
+    @{
+        var urls = Model.Select(r => r.Url.ToString()).ToList();
+        var maxResponses = Model.Select(r => r.MaxResponseTime).ToList();
+    }
+    var data = {
+        labels: @Html.Json(urls),
+        datasets: [
+            {
+                label: "Response time, msec",
+                backgroundColor: "#FF6347",
+                barPercentage: 0.6,
+                data: @Html.Json(maxResponses)
+            },
+        ]
+    }
+
+    var ctx1 = document.getElementById("chart").getContext("2d");
+    var chart = new Chart(ctx1,
+        {
+            type: 'horizontalBar',
+            data: data,
+            options:
+            {
+                title:
+                {
+                    display: true,
+                    text: "Max Response Times"
+                },
+                responsive: true,
+                maintainAspectRatio: true
+            }
+        });
+</script>
+
+<canvas id="chart"></canvas>

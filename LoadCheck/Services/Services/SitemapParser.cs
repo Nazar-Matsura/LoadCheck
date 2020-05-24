@@ -1,15 +1,19 @@
+using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Xml;
+using System.Linq;
+using System.Xml.Linq;
 using LoadCheck.Services.Interfaces;
 
 namespace LoadCheck.Services.Services
 {
     public class SitemapParser : ISitemapParser
     {
-        public async Task<List<object>> ParseSitemaps(List<XmlDocument> xml)
+        public List<Uri> ParseSitemap(XElement xml)
         {
-            throw new System.NotImplementedException();
+            return xml.Descendants()
+                .Where(e => e.Name.LocalName == "loc")
+                .Select(e => new Uri(e.Value))
+                .ToList();
         }
     }
 }

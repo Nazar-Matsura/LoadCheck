@@ -33,7 +33,7 @@ namespace LoadCheck
             // container.LoadConfiguration();
 
             container.RegisterType<ILoadCheckService, LoadCheckService>();
-            container.RegisterType<ISitemapFinder, SitemapFinder>();
+            container.RegisterType<IUrlsProvider, UrlsProvider>();
             container.RegisterType<ISitemapParser, SitemapParser>();
             container.RegisterType<IUrlsChecker, UrlsChecker>();
             container.RegisterType<HttpClient, HttpClient>();

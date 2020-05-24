@@ -2,7 +2,10 @@
 
 namespace LoadCheck.Exceptions
 {
-    public class SiteMapNotFoundException : Exception
+    public class SitemapNotFoundException : Exception
     {
+        public SitemapNotFoundException(string message) : base(message)
+        {
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿@using (Ajax.BeginForm("CheckUri", new AjaxOptions { UpdateTargetId = "results", HttpMethod = "GET" }))
+﻿@using (Ajax.BeginForm("CheckUrl", new AjaxOptions { UpdateTargetId = "results", HttpMethod = "GET", LoadingElementId = "loading"}))
 {
     <input type="text" name="url" />
     <input type="submit" value="Check" />

@@ -206,10 +206,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LoadCheck.Application\LoadCheck.Application.csproj">
-      <Project>{fb76e25e-c54c-46c1-bff3-ac2ebf5a245e}</Project>
+      <Project>{7cb0e04a-0aef-4300-8f1e-eea5b6b3cefa}</Project>
       <Name>LoadCheck.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LoadCheck.Domain\LoadCheck.Core.csproj">
+    <ProjectReference Include="..\LoadCheck.Core\LoadCheck.Core.csproj">
       <Project>{dd00b1ed-c9ec-4702-ac48-59e48efe2e07}</Project>
       <Name>LoadCheck.Core</Name>
     </ProjectReference>

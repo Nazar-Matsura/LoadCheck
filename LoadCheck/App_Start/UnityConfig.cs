@@ -3,6 +3,7 @@ using System.Net.Http;
 using LoadCheck.Application.Interfaces;
 using LoadCheck.Application.Services;
 using LoadCheck.Helpers;
+using LoadCheck.Infrastructure.Persistence;
 using Unity;
 
 namespace LoadCheck
@@ -38,6 +39,13 @@ namespace LoadCheck
             container.RegisterType<ISitemapParser, SitemapParser>();
             container.RegisterType<IUrlsChecker, UrlsChecker>();
             container.RegisterType<IConfiguration, ConfigurationHelper>();
+
+            container.RegisterType<IPersistenceService, PersistenceService>();
+            container.RegisterType<IHistoryService, HistoryService>();
+
+            container.RegisterType(typeof(IRepository<>), typeof(Repository<>));
+            container.RegisterType<ISiteRootRepository, SiteRootRepository>();
+
             container.RegisterType<HttpClient, HttpClient>();
         }
     }

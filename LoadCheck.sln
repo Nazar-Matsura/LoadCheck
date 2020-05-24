@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadCheck.Core", "LoadCheck
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadCheck.Application", "LoadCheck.Application\LoadCheck.Application.csproj", "{7CB0E04A-0AEF-4300-8F1E-EEA5B6B3CEFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadCheck.Infrastructure", "LoadCheck.Infrastructure\LoadCheck.Infrastructure.csproj", "{97D70191-3F3B-4289-AE7E-5CE81F876C8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7CB0E04A-0AEF-4300-8F1E-EEA5B6B3CEFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CB0E04A-0AEF-4300-8F1E-EEA5B6B3CEFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CB0E04A-0AEF-4300-8F1E-EEA5B6B3CEFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97D70191-3F3B-4289-AE7E-5CE81F876C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97D70191-3F3B-4289-AE7E-5CE81F876C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97D70191-3F3B-4289-AE7E-5CE81F876C8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97D70191-3F3B-4289-AE7E-5CE81F876C8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

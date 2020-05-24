@@ -1,0 +1,20 @@
+﻿@model IEnumerable<LoadCheck.Core.ViewModels.SiteTestsViewModel>
+
+@Html.ActionLink("Index", "Index")
+
+@foreach (var site in Model)
+{
+    <div>
+        <h3>@site.Root.ToString()</h3>
+        
+        @foreach (var test in site.TestResults)
+        {
+            <div>
+                <h4>@test.TestStart</h4>
+                <div>
+                    @Html.Partial("Table", test.Urls)
+                </div>
+            </div>
+        }
+    </div>
+}

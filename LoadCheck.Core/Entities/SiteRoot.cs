@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LoadCheck.Core.Entities
 {
-    public class SiteRoot
+    public class SiteRoot : BaseEntity
     {
-        public Guid Id { get; set; }
-
         public string Authority { get; set; }
+
+        public virtual ICollection<Test> Tests { get; set; }
     }
 }

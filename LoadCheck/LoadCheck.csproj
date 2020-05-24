@@ -187,6 +187,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\CheckUrl.cshtml" />
     <Content Include="Views\Shared\Chart.cshtml" />
+    <Content Include="Views\Home\History.cshtml" />
+    <Content Include="Views\Shared\Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -212,6 +214,10 @@
     <ProjectReference Include="..\LoadCheck.Core\LoadCheck.Core.csproj">
       <Project>{dd00b1ed-c9ec-4702-ac48-59e48efe2e07}</Project>
       <Name>LoadCheck.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoadCheck.Infrastructure\LoadCheck.Infrastructure.csproj">
+      <Project>{97d70191-3f3b-4289-ae7e-5ce81f876c8a}</Project>
+      <Name>LoadCheck.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

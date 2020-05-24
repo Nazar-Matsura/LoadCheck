@@ -2,16 +2,15 @@
 
 namespace LoadCheck.Core.Entities
 {
-    public class TestResult
+    public class TestResult : BaseEntity
     {
-        public Guid Id { get; set; }
-
         public string Url { get; set; }
 
-        public int MinResponseTime { get; set; }
+        public long MinResponseTime { get; set; }
 
-        public int MaxResponseTime { get; set; }
+        public long MaxResponseTime { get; set; }
 
         public Guid TestId { get; set; }
+        public virtual Test Test { get; set; }
     }
 }

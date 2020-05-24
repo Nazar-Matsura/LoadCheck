@@ -15,7 +15,6 @@ namespace LoadCheck.Infrastructure.Persistence
         public async Task<IEnumerable<SiteRoot>> GetFullAggregateSiteRoots()
         {
             return _entities
-                .AsQueryable()
                 .Include(r => r.Tests.Select(t => t.TestResults));
         }
     }

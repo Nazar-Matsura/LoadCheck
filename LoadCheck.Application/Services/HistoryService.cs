@@ -26,7 +26,7 @@ namespace LoadCheck.Application.Services
                 .ToList()
                 .Select(s => new SiteTestsViewModel
                 {
-                    Root = new Uri(s.Authority),
+                    Root = s.Authority,
                     TestResults = MapTestResults(s),
                 })
                 .ToList();
@@ -52,6 +52,7 @@ namespace LoadCheck.Application.Services
                     MaxResponseTime = tr.MaxResponseTime,
                     Url = new Uri(tr.Url),
                 })
+                .OrderByDescending(u => u.MaxResponseTime)
                 .ToList();
         }
     }

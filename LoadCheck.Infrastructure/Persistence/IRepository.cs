@@ -11,7 +11,7 @@ namespace LoadCheck.Infrastructure.Persistence
         Task<TEntity> GetSingle(Expression<Func<TEntity, bool>> expression);
         Task<IEnumerable<TEntity>> GetAll();
         Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> expression);
-        Task AddOrUpdate(TEntity entity);
+        Task Add(TEntity entity);
         Task AddRange(IEnumerable<TEntity> entities);
         Task Remove(TEntity entity);
         Task RemoveById(Guid id);

@@ -51,12 +51,9 @@ namespace LoadCheck.Infrastructure.Persistence
                 .ToListAsync();
         }
         
-        public async Task AddOrUpdate(TEntity entity)
+        public async Task Add(TEntity entity)
         {
-            //_entities.AddOrUpdate(entity);
-
             _entities.Add(entity);
-            _dbContext.Entry(entity).State = EntityState.Modified;
             await _dbContext.SaveChangesAsync();
         }
 

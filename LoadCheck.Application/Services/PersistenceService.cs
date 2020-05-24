@@ -33,7 +33,7 @@ namespace LoadCheck.Application.Services
             var site = await FindOrCreateSite(authority);
 
             var newTest = new Test {SiteRootId = site.Id, TimeOfTest = DateTime.Now};
-            await _testRepository.AddOrUpdate(newTest);
+            await _testRepository.Add(newTest);
 
             var testResults = results.Select(r => new TestResult
             {
@@ -53,7 +53,7 @@ namespace LoadCheck.Application.Services
             if (result == null)
             {
                 result = new SiteRoot {Authority = authority};
-                await _siteRootRepository.AddOrUpdate(result);
+                await _siteRootRepository.Add(result);
             }
 
             return result;

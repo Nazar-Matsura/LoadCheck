@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using LoadCheck.Services.Interfaces;
+using LoadCheck.Application.Interfaces;
 
 namespace LoadCheck.Controllers
 {

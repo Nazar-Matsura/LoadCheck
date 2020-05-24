@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LoadCheck.Exceptions
+namespace LoadCheck.Application.Exceptions
 {
     public class SitemapNotFoundException : Exception
     {

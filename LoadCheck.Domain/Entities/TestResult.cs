@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LoadCheck.Models.Domain
+namespace LoadCheck.Core.Entities
 {
     public class TestResult
     {

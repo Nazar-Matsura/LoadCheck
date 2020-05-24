@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using LoadCheck.Models;
-using LoadCheck.Services.Interfaces;
+using LoadCheck.Application.Interfaces;
+using LoadCheck.Core.ViewModels;
 
-namespace LoadCheck.Services.Services
+namespace LoadCheck.Application.Services
 {
     public class LoadCheckService : ILoadCheckService
     {

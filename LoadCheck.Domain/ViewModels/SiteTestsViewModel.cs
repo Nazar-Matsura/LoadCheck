@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LoadCheck.Services.Interfaces
+namespace LoadCheck.Core.ViewModels
 {
     public class SiteTestsViewModel
     {

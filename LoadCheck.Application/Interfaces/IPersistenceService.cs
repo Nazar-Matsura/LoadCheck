@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using LoadCheck.Models;
+using LoadCheck.Core.ViewModels;
 
-namespace LoadCheck.Services.Interfaces
+namespace LoadCheck.Application.Interfaces
 {
     public interface IPersistenceService
     {

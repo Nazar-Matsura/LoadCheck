@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LoadCheck.Models
+namespace LoadCheck.Core.ViewModels
 {
     public class UrlResponseTimes
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
 
-namespace LoadCheck.Services.Interfaces
+namespace LoadCheck.Application.Interfaces
 {
     public interface ISitemapParser
     {

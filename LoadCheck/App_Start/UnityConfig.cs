@@ -1,9 +1,9 @@
 using System;
 using System.Net.Http;
-using LoadCheck.Services.Interfaces;
-using LoadCheck.Services.Services;
+using LoadCheck.Application.Interfaces;
+using LoadCheck.Application.Services;
+using LoadCheck.Helpers;
 using Unity;
-using Unity.Lifetime;
 
 namespace LoadCheck
 {
@@ -37,6 +37,7 @@ namespace LoadCheck
             container.RegisterType<IUrlsProvider, UrlsProvider>();
             container.RegisterType<ISitemapParser, SitemapParser>();
             container.RegisterType<IUrlsChecker, UrlsChecker>();
+            container.RegisterType<IConfiguration, ConfigurationHelper>();
             container.RegisterType<HttpClient, HttpClient>();
         }
     }

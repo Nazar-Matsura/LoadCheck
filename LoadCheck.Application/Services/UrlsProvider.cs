@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using LoadCheck.Exceptions;
-using LoadCheck.Services.Interfaces;
+using LoadCheck.Application.Exceptions;
+using LoadCheck.Application.Interfaces;
 
-namespace LoadCheck.Services.Services
+namespace LoadCheck.Application.Services
 {
     public class UrlsProvider : IUrlsProvider
     {
@@ -17,27 +16,31 @@ namespace LoadCheck.Services.Services
         private readonly HttpClient _client;
         private readonly ISitemapParser _sitemapParser;
 
-        public UrlsProvider(HttpClient client, ISitemapParser sitemapParser)
+        private readonly int _maxUrlsToTest;
+        private readonly int _maxSitemapsToProcess;
+
+        public UrlsProvider(HttpClient client, ISitemapParser sitemapParser, IConfiguration configuration)
         {
             _client = client;
             _sitemapParser = sitemapParser;
+
+            _maxUrlsToTest = configuration.MaxUrlsCount;
+            _maxSitemapsToProcess = configuration.MaxSitemapCount;
         }
 
         public async Task<List<Uri>> GetSitemapFor(Uri uri)
         {
             var sitemaps = await FindSitemapsFor(uri);
 
-            var maxUris = int.Parse(ConfigurationManager.AppSettings["MaxUrlsCount"]);
-
             var result = new List<Uri>();
 
             foreach (var sitemap in sitemaps)
             {
-                if (result.Count == maxUris)
+                if (result.Count == _maxUrlsToTest)
                     return result;
 
                 var uris = _sitemapParser.ParseSitemap(sitemap);
-                var numberOfUrisToAdd = maxUris - result.Count;
+                var numberOfUrisToAdd = _maxUrlsToTest - result.Count;
                 result.AddRange(uris.Take(numberOfUrisToAdd));
             }
 
@@ -92,11 +95,9 @@ namespace LoadCheck.Services.Services
 
         private List<Uri> GetSitemapUrisFromIndex(XElement elem)
         {
-            var maxSiteMaps = int.Parse(ConfigurationManager.AppSettings["MaxSitemapCount"]);
-
             return elem.Descendants()
                 .Where(e => e.Name.LocalName == "loc")
-                .Take(maxSiteMaps)
+                .Take(_maxSitemapsToProcess)
                 .Select(e => new Uri(e.Value))
                 .ToList();
         }

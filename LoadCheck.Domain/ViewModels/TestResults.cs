@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using LoadCheck.Models;
 
-namespace LoadCheck.Services.Interfaces
+namespace LoadCheck.Core.ViewModels
 {
     public class TestResults
     {

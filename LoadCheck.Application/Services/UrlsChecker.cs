@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using LoadCheck.Models;
-using LoadCheck.Services.Interfaces;
+using LoadCheck.Application.Interfaces;
+using LoadCheck.Core.ViewModels;
 
-namespace LoadCheck.Services.Services
+namespace LoadCheck.Application.Services
 {
     public class UrlsChecker : IUrlsChecker
     {
@@ -17,10 +16,10 @@ namespace LoadCheck.Services.Services
 
         private readonly int _measurementsCount;
 
-        public UrlsChecker(HttpClient httpClient)
+        public UrlsChecker(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
-            _measurementsCount = int.Parse(ConfigurationManager.AppSettings["UrlMeasurements"]);
+            _measurementsCount = configuration.UrlMeasurements;
         }
 
         public async Task<List<UrlResponseTimes>> MeasureResponseTimes(List<Uri> urls)

@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using LoadCheck.Services.Interfaces;
+using LoadCheck.Application.Interfaces;
 
-namespace LoadCheck.Services.Services
+namespace LoadCheck.Application.Services
 {
     public class SitemapParser : ISitemapParser
     {

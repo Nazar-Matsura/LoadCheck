@@ -139,10 +139,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="Filters\ExceptionFilter.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
-    <Compile Include="Models\CheckUrlResults.cs" />
+    <Compile Include="Models\Domain\TestResult.cs" />
+    <Compile Include="Services\Interfaces\IHistoryService.cs" />
+    <Compile Include="Services\Interfaces\IPersistenceService.cs" />
     <Compile Include="Services\Interfaces\IUrlsProvider.cs" />
     <Compile Include="Services\Interfaces\ISitemapParser.cs" />
     <Compile Include="Services\Interfaces\IUrlsChecker.cs" />
+    <Compile Include="Services\Interfaces\SiteTestsViewModel.cs" />
+    <Compile Include="Services\Interfaces\TestResults.cs" />
     <Compile Include="Services\Services\LoadCheckService.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
@@ -201,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DAL\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

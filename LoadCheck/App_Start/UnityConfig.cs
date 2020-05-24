@@ -3,6 +3,7 @@ using System.Net.Http;
 using LoadCheck.Services.Interfaces;
 using LoadCheck.Services.Services;
 using Unity;
+using Unity.Lifetime;
 
 namespace LoadCheck
 {
